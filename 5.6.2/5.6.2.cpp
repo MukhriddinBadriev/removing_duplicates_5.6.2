@@ -1,21 +1,21 @@
 ﻿#include <iostream>
 
 #include <set>
+#include <vector>
 
 int main()
 {
     std::set<int> num;
-    int size=0;
- 
-    std::cout << "[IN]:" << '\n';
-    std::cin>>size;    
-    int* a = new int[size];
-    for (int i = 0; i < size; i++) {
-        std::cin >> a[i];
+    std::vector<int>v = { 1,5,1,3,4,4 };
+
+    std::cout << "[IN]:" << '\n'<<v.size()<<'\n';   
+    
+    for (const auto& elem : v) {
+        std::cout << elem << '\n';
     }
 
-    for (int elem = 0; elem < size;elem++) {
-        num.insert(a[elem]);
+    for (int elem = 0; elem < v.size(); elem++) {
+        num.insert(v[elem]);
     }
 
     auto r_i = num.rbegin();
@@ -24,8 +24,6 @@ int main()
         std::cout << *r_i << std::endl;
         r_i++;
     }
-
-    delete[]a;
 
     return 0;
 }
